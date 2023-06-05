@@ -37,9 +37,10 @@ const Result1 = () => {
 
   // Filter content
   const filteredContent = content.filter((item) =>
-    item.member.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.position.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.Date.includes(searchTerm)
+    item.member.toLowerCase().includes(searchTerm?.toLowerCase()) ||
+    item.position.toLowerCase().includes(searchTerm?.toLowerCase()) ||
+    item.Date.includes(searchTerm) ||
+    item.emp_id.includes(searchTerm)
   );
 
   return (
@@ -55,7 +56,7 @@ const Result1 = () => {
       <table>
         <thead>
           <tr>
-            <th>ID</th>
+            <th>Employee ID</th>
             <th>Member</th>
             <th>Position</th>
             <th>Remarks</th>
@@ -64,8 +65,8 @@ const Result1 = () => {
         </thead>
         <tbody>
           {filteredContent.map((item) => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
+            <tr key={item.emp_id}>
+              <td>{item.emp_id}</td>
               <td>{item.member}</td>
               <td>{item.position}</td>
               <td>{item.remarks}</td>
